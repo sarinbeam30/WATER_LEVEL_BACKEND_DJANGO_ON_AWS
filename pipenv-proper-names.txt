@@ -1,0 +1,6 @@
+Automat
+Django
+PyHamcrest
+pyOpenSSL
+service_identity
+zope.interface

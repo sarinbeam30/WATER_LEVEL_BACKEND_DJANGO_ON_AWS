@@ -1,0 +1,8 @@
+#!/Users/sarin_beam30/Backup_Lenovo_Y520[7-July-2019]/Downloads/IC_Kmitl/Team-Software-Project/eb-virt/bin/python
+# -*- coding: utf-8 -*-
+import re
+import sys
+from daphne.cli import CommandLineInterface
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(CommandLineInterface.entrypoint())

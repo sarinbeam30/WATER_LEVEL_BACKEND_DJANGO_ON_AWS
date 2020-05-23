@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_with_PostgreSQL_app',
+    'channels',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +71,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend_side_by_django_on_aws_version_4.wsgi.application'
+ASGI_APPLICATION = 'backend_side_by_django_on_aws_version_4.routing.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6380)],
+        },
+    },
+}
 
 
 # Database
@@ -75,8 +88,12 @@ WSGI_APPLICATION = 'backend_side_by_django_on_aws_version_4.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mqtt_database_aws',
+        'USER': 'postgres_master',
+        'PASSWORD': 'Test1234',
+        'HOST': 'postgresqldatabase.cdzitxhpu2ys.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -104,17 +121,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'Asia/Bangkok'
 
-TIME_ZONE = 'UTC'
+USE_I18N = False
+USE_L10N = False
+USE_TZ = False
 
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+DATETIME_FORMAT="d/m/Y H:i:s"
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
