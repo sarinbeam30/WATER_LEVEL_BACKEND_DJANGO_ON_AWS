@@ -40,9 +40,13 @@ INSTALLED_APPS = [
     'django_with_PostgreSQL_app',
     'channels',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+
+    'corsheaders.middleware.CorsMiddleware', # new
+    'django.middleware.common.CommonMiddleware', # new
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,6 +61,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ]
 }
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
 
 ROOT_URLCONF = 'backend_side_by_django_on_aws_version_4.urls'
 
