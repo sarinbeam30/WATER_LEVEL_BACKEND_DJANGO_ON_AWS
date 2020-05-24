@@ -25,7 +25,7 @@ SECRET_KEY = '=_w%nlpv@dt+&b9w@uzg)w4%4xwhgab05&@u$psyh(3(qr$l7='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com', '127.0.0.1']
 
 
 # Application definition
@@ -51,6 +51,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 ROOT_URLCONF = 'backend_side_by_django_on_aws_version_4.urls'
 
