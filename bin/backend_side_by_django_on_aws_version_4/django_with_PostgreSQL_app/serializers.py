@@ -8,6 +8,6 @@ class data_logger_serializer(serializers.ModelSerializer):
 
     class Meta:
         model = data_logger_model
-        fields = ['sensor', 'water_level', 'longitude', 'latitude', 'location', 'date_and_time']
+        fields = ['id','sensor', 'water_level', 'longitude', 'latitude', 'location', 'date_and_time']
     
     

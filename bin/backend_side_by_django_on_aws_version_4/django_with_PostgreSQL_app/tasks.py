@@ -9,11 +9,11 @@ import requests, os, time
 @shared_task()
 
 def update_water_level_api():
-    URL = "http://django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com"
-    requests.get(URL)
+    URL_AWS = "http://django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com"
+    requests.get(URL_AWS)
     print("GET MA LEAW")
 
 while True:
-    time.sleep(25)
+    time.sleep(20)
     update_water_level_api()
 
