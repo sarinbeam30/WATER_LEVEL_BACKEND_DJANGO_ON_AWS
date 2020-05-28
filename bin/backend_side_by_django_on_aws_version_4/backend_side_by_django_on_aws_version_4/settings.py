@@ -63,7 +63,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000"
+    "http://localhost:3000", "http://localhost:3006"
 ]
 
 ROOT_URLCONF = 'backend_side_by_django_on_aws_version_4.urls'
