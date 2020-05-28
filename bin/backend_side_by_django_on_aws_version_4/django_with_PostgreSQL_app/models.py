@@ -16,8 +16,9 @@ class data_logger_model (models.Model):
     longitude = models.FloatField(blank=False)
     latitude = models.FloatField(blank=False)
     location = models.TextField(blank=False, max_length=30)
-    date_and_time = CustomDateTimeField(blank=False, default=timezone.now)
+    # date_and_time = CustomDateTimeField(blank=False, default=timezone.now)
     # date_and_time = models.DateTimeField(blank=False, format="%d/%m/%Y %H:%i:%s", default=timezone.now)
+    date_and_time = models.TextField(blank=False)
 
     class Meta:
         ordering=('sensor', 'date_and_time',)

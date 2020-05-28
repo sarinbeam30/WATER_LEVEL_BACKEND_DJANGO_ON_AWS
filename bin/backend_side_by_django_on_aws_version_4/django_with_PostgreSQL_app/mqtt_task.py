@@ -1,5 +1,6 @@
 import paho.mqtt.client as mqtt
 import time, sys
+from celery import shared_task
 # from models import data_logger_model
 # from django.conf import settings
 
@@ -38,7 +39,7 @@ def connect_to_mqtt_broker():
     client.loop_forever()
 
     
-
+@shared_task()
 def main():
     connect_to_mqtt_broker()
     print("KO TEST NOI")
