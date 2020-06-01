@@ -21,7 +21,7 @@ class data_logger_model (models.Model):
     date_and_time = models.TextField(blank=False)
 
     class Meta:
-        ordering=('sensor', 'date_and_time',)
+        ordering=('date_and_time', 'sensor')
         get_latest_by = 'date_and_time',
         # verbose_name = 'data_logger_model',
         db_table = 'data_logger_model'
