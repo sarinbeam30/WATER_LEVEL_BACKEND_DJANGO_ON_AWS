@@ -18,11 +18,12 @@ class data_logger_model (models.Model):
     location = models.TextField(blank=False, max_length=30)
     # date_and_time = CustomDateTimeField(blank=False, default=timezone.now)
     # date_and_time = models.DateTimeField(blank=False, format="%d/%m/%Y %H:%i:%s", default=timezone.now)
-    date_and_time = models.TextField(blank=False)
+    date = models.TextField(blank=False)
+    time = models.TextField(blank=False)
 
     class Meta:
-        ordering=('date_and_time', 'sensor')
-        get_latest_by = 'date_and_time',
+        ordering=('time', 'date', 'sensor')
+        get_latest_by = 'date',
         # verbose_name = 'data_logger_model',
         db_table = 'data_logger_model'
 
