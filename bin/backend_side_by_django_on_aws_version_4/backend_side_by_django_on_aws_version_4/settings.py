@@ -25,7 +25,7 @@ SECRET_KEY = '=_w%nlpv@dt+&b9w@uzg)w4%4xwhgab05&@u$psyh(3(qr$l7='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com', '127.0.0.1']
+ALLOWED_HOSTS = ['django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com', 'new-app-django-env.eba-cwpa3c9w.ap-southeast-1.elasticbeanstalk.com', '127.0.0.1']
 
 
 # Application definition
@@ -63,8 +63,12 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000", "http://localhost:3006", "https://master.d3pvc8lj0i63c6.amplifyapp.com"
+    "http://localhost:3000", "http://localhost:3006", "https://master.d3pvc8lj0i63c6.amplifyapp.com",
 ]
+
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
 
 ROOT_URLCONF = 'backend_side_by_django_on_aws_version_4.urls'
 
